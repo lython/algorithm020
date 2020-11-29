@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
+# https://leetcode-cn.com/problems/valid-anagram/
+# 242. 有效的字母异位词
 
 class Solution(object):
     def isAnagram(self, s, t):
