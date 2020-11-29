@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-# https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
-# 二叉树中序遍历
+# 二叉树遍历
+# 中序 https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
+# 二叉树遍历
 
 # Definition for a binary tree node.
 class TreeNode(object):
@@ -14,14 +15,38 @@ class TreeNode(object):
 class Solution(object):
     traversal_path = []
 
-    def inorderTraversal(self, root: TreeNode):
+    def preorder(self, root: TreeNode):
         """
+        前序遍历
         :type root: TreeNode
         :rtype: List[int]
         """
         if root:
-            self.inorderTraversal(root.left)
-            if root.val:
-                self.traversal_path.append(root.val)
-            self.inorderTraversal(root.left)
+            self.traversal_path.append(root.val)
+            self.preorder(root.left)
+            self.preorder(root.right)
+
+    def inorder(self, root: TreeNode):
+        """
+        中序遍历
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        if root:
+            self.inorder(root.left)
+            self.traversal_path.append(root.val)
+            self.inorder(root.right)
+
+    def postorder(self, root: TreeNode):
+        """
+        后序遍历
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        if root:
+            self.postorder(root.left)
+            self.postorder(root.right)
+            self.traversal_path.append(root.val)
+
+
 
